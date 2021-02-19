@@ -7,7 +7,7 @@ export interface ParcelBundler extends Bundler {
 
 export function createBundler(
   entry: string,
-  options: Bundler.ParcelOptions & { hmr: boolean; autoinstall: boolean },
+  options: Bundler.ParcelOptions,
   onBuild = () => {}
 ) {
   const bundler = new Bundler([entry], options) as ParcelBundler;

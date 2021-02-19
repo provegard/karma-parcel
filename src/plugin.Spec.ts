@@ -249,11 +249,11 @@ describe("plugin", () => {
           );
         });
 
-        it("creates the bundler with autoinstall == false", () => {
+        it("creates the bundler with autoInstall == false", () => {
           plugin.middleware(req, resp, sinon.stub());
 
           sinon.assert.calledWithMatch(createBundler, sinon.match.any, {
-            autoinstall: false
+            autoInstall: false
           });
         });
 
