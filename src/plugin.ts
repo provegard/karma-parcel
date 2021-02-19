@@ -5,7 +5,7 @@ import {
   Response
 } from "express-serve-static-core";
 import { ParcelOptions } from "parcel-bundler";
-import { createBundler } from "./bunlder";
+import { createBundler } from "./bundler";
 import { createWorkspaceSync } from "./files";
 import { Callback, KarmaFile, KarmaLoggerFactory, Logger } from "./types";
 import { throttle } from "./utils";
