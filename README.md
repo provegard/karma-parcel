@@ -1,5 +1,7 @@
 # Karma Parcel Phoenix
 
+[![All tests](https://github.com/provegard/karma-parcel/actions/workflows/main.yml/badge.svg)](https://github.com/provegard/karma-parcel/actions/workflows/main.yml)
+
 This is a fork of [karma-parcel](https://github.com/valotas/karma-parcel), which is not actively maintained anymore.
 
 Use [parcel][] to preprocess [karma][] tests
