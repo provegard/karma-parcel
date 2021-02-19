@@ -1,6 +1,6 @@
-# Karma Parcel
+# Karma Parcel Phoenix
 
-[![Build Status](https://travis-ci.org/valotas/karma-parcel.svg?branch=master)](https://travis-ci.org/valotas/karma-parcel)
+This is a fork of [karma-parcel](https://github.com/valotas/karma-parcel), which is not actively maintained anymore.
 
 Use [parcel][] to preprocess [karma][] tests
 
