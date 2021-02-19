@@ -35,7 +35,6 @@ describe("plugin", () => {
       debug: sinon.stub()
     };
     karmaConf = {
-      autoWatch: false
     } as KarmaConf;
   });
 
@@ -215,15 +214,24 @@ describe("plugin", () => {
           });
         });
 
-        it("creates the bundler with watch = true when karmaKonf.autoWatch is truthy", () => {
-          karmaConf.autoWatch = true;
-
-          plugin.middleware(req, resp, sinon.stub());
-
-          sinon.assert.calledWithMatch(createBundler, sinon.match.any, {
-            watch: true
+        [
+          { autoWatch: false, watch: true, expected: true },
+          { autoWatch: true, watch: false, expected: false },
+          { autoWatch: true, watch: undefined, expected: true },
+          { autoWatch: undefined, watch: undefined, expected: false },
+        ].forEach(({ autoWatch, watch, expected }) => {
+          it(`creates the bundler with watch = ${expected} when karmaConf.autoWatch = ${autoWatch} and karmaConf.parcelConfig.watch is ${watch}`, () => {
+            karmaConf.autoWatch = autoWatch
+            karmaConf.parcelConfig = { watch };
+  
+            plugin.middleware(req, resp, sinon.stub());
+  
+            sinon.assert.calledWithMatch(createBundler, sinon.match.any, {
+              watch: expected
+            });
           });
-        });
+  
+        })
 
         it("creates the bundler with the given karmaKonf.parcelConfig", () => {
           karmaConf.parcelConfig = {

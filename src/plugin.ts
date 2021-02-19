@@ -17,7 +17,7 @@ export type KarmaConf = karma.ConfigOptions &
   karma.Config & {
     parcelConfig?: Pick<
       ParcelOptions,
-      "cacheDir" | "detailedReport" | "logLevel"
+      "cacheDir" | "detailedReport" | "logLevel" | "watch"
     >;
   };
 
@@ -54,7 +54,7 @@ export class ParcelPlugin {
   }
 
   isWatching() {
-    return this.karmaConf.autoWatch || false;
+    return this.karmaConf.parcelConfig?.watch ?? this.karmaConf.autoWatch ?? false;
   }
 
   preprocessor = (content: string, file: KarmaFile, next: Callback) => {

@@ -47,7 +47,7 @@ module.exports = function (config) {
 
 ### `parcelConfig`
 
-some more parcel specific configuration can be passed to the underlying parcel
+Some more parcel specific configuration can be passed to the underlying parcel
 instance via the `parcelConfig` attribute of your karma configuration:
 
 ```js
@@ -57,11 +57,16 @@ module.exports = function (config) {
     parcelConfig: {
       cacheDir: "/path/to/cache", // default: "./.cache"
       detailedReport: true, // default: false,
-      logLevel: 2 // default: 1
+      logLevel: 2, // default: 1
+      watch: true // default: config.autoWatch or false
     }
   });
 };
 ```
+
+The reason that `watch` can be set separate from `config.autoWatch` is so that parcel
+can rebuild changed files even if a karma run is triggered manually (e.g. from
+IntelliJ IDEA).
 
 ## Under the hood
 
