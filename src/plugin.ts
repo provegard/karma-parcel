@@ -128,8 +128,8 @@ export function createParcelPlugin(
   config: KarmaConf,
   emitter: KarmaServer
 ) {
-  const parcelLoger = logger.create("parcel");
-  return new ParcelPlugin(parcelLoger, config, emitter);
+  const parcelLogger = logger.create("parcel");
+  return new ParcelPlugin(parcelLogger, config, emitter);
 }
 
 createParcelPlugin.$inject = ["logger", "config", "emitter"];
